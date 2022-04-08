@@ -41,6 +41,7 @@ spec:
       serviceAccountName: header-echo
       containers:
       - name: header-echo
+        blah: true 
         image: markmckie123/header-echo-x86-64:1
         imagePullPolicy: IfNotPresent
         ports:
