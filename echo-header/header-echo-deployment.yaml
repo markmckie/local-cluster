@@ -41,7 +41,7 @@ spec:
       serviceAccountName: echo-header
       containers:
       - name: echo-header 
-        image: markmckie123/echo-header-x86-64:1
+        image: markmckie123/header-echo-x86-64:1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8090

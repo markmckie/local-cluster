@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: local-cluster
+  namespace: argocd
+spec:
+  destinations:
+    - name: '*'
+      namespace: '*'
+      server: https://kubernetes.default.svc
