@@ -1,0 +1,90 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: header-echo
+  labels:
+    app: header-echo
+    service: header-echo
+spec:
+  ports:
+  - port: 8090
+    name: http
+  selector:
+    app: header-echo
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: header-echo
+  labels:
+    account: header-echo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: header-echo-v1
+  labels:
+    app: header-echo
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: header-echo
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: header-echo
+        version: v1
+    spec:
+      serviceAccountName: header-echo
+      containers:
+      - name: header-echo
+        image: markmckie123/header-echo-x86-64:1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8090
+        securityContext:
+          runAsUser: 1000
+        resources:
+          limits:
+            memory: 128M
+          requests:
+            cpu: 100m
+            memory: 128M 
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: header-echo-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts: 
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: header-echo
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - header-echo-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: header-echo
+        port:
+          number: 8090
+
