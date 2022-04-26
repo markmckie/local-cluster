@@ -82,9 +82,12 @@ spec:
   - match:
     - uri:
         prefix: /
-    route:
-    - destination:
-        host: header-echo
-        port:
-          number: 8090
+    redirect:
+      uri: /
+      authority: localhost:66666
+    #route:
+    #- destination:
+    #    host: header-echo
+    #    port:
+    #      number: 8090
 
