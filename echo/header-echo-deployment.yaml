@@ -83,8 +83,7 @@ spec:
     - uri:
         prefix: /
     redirect:
-      uri: /headers
-      authority: localhost:55000
+      authority: localhost:8080
     #route:
     #- destination:
     #    host: header-echo
