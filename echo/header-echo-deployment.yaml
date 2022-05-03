@@ -82,8 +82,8 @@ spec:
   - match:
     - uri:
         prefix: /
-    redirect:
-      authority: localhost:8080
+    #redirect:
+    #  authority: localhost:8080
     corsPolicy:
       maxAge: 1m
       allowMethods:
