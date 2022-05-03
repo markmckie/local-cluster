@@ -88,9 +88,9 @@ spec:
       maxAge: 1m
       allowMethods:
       - GET
-    #route:
-    #- destination:
-    #    host: header-echo
-    #    port:
-    #      number: 8090
+    route:
+    - destination:
+        host: header-echo
+        port:
+          number: 8090
 
