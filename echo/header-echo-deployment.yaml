@@ -86,7 +86,7 @@ spec:
     #  authority: localhost:8080
     corsPolicy:
       allowOrigin: 
-      - 'http://www.test.local'
+      - 'http://www.test123.local'
       maxAge: 1m
       allowMethods:
       - GET
