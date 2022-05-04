@@ -85,8 +85,8 @@ spec:
     #redirect:
     #  authority: localhost:8080
     corsPolicy:
-      allowOrigins: 
-      - regex: '*'
+      allowOrigin: 
+      - '*'
       maxAge: 1m
       allowMethods:
       - GET
