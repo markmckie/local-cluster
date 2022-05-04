@@ -86,7 +86,7 @@ spec:
     #  authority: localhost:8080
     corsPolicy:
       allowOrigins: 
-      - regex: *
+      - regex: '*'
       maxAge: 1m
       allowMethods:
       - GET
