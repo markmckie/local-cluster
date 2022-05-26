@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+  name: k8ssandra-cluster
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: local-cluster
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: echo
+    repoURL: https://github.com/markmckie/k8ssandra-clusster.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
