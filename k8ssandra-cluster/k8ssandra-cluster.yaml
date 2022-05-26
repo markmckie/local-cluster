@@ -9,7 +9,7 @@ spec:
   serverVersion: 3.11.7
   managementApiAuth:
     insecure: {}
-  size: 3
+  size: 1
   podTemplateSpec:
     spec:
       initContainers:
