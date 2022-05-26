@@ -4,6 +4,7 @@ metadata:
   name: dc1
   namespace: cass-operator
 spec:
+  name: development
   clusterName: development
   serverType: cassandra
   serverVersion: "4.0.1"
