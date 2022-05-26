@@ -1,10 +1,9 @@
 apiVersion: cassandra.datastax.com/v1beta1
 kind: CassandraDatacenter
 metadata:
-  name: dc1
+  name: dc11
   namespace: cass-operator
 spec:
-  name: development
   clusterName: development
   serverType: cassandra
   serverVersion: "4.0.1"
