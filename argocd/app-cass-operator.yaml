@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cass-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: cass-operator
+    server: https://kubernetes.default.svc
+  project: local-cluster
+  source:
+    chart: cass-operator
+    repoURL: https://helm.k8ssandra.io/stable
+    targetRevision: 0.35.3
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+
