@@ -11,12 +11,12 @@ spec:
   size: 3
   storageConfig:
       cassandraDataVolumeClaimSpec:
-        storageClassName: hostpath
+        storageClassName: server-storage
         accessModes:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 1Gi
+            storage: 10Gi
   dockerImageRunsAsCassandra: false
   resources:
     requests:
