@@ -14,8 +14,8 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: echo
-    repoURL: https://github.com/markmckie/k8ssandra-clusster.git
+    path: k8ssandra-cluster
+    repoURL: https://github.com/markmckie/local-cluster.git
     targetRevision: HEAD
   syncPolicy:
     automated:
