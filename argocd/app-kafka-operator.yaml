@@ -12,7 +12,11 @@ spec:
   project: local-cluster
   source:
     directory:
-      jsonnet: {}
+      jsonnet:
+        extVars:
+          - code: true
+            name: namespace
+            value: kafka
       recurse: true
     path: kafka-operator
     repoURL: https://github.com/markmckie/local-cluster.git
