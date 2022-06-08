@@ -29,7 +29,7 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: argocd-init
+    path: argocd
     repoURL: https://github.com/markmckie/local-cluster.git
     targetRevision: HEAD
   syncPolicy:
