@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: kafka-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: kafka
+    server: https://kubernetes.default.svc
+  project: local-cluster
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: kafka-operator
+    repoURL: https://github.com/markmckie/local-cluster.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
