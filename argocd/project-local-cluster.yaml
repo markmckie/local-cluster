@@ -15,4 +15,4 @@ spec:
     - group: '*'
       kind: '*'
   sourceRepos:
-    - '*
+    - '*'
