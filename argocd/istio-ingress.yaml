@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: local-cluster
   source:
-    chart: ingress
+    chart: gateway
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.14.0
   syncPolicy:
