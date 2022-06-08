@@ -84,12 +84,12 @@ spec:
         prefix: /
     #redirect:
     #  authority: localhost:8080
-    corsPolicy:
-      allowOrigin: 
-      - '*'
-      maxAge: 1m
-      allowMethods:
-      - GET
+    #corsPolicy:
+    #  allowOrigin: 
+    #  - '*'
+    #  maxAge: 1m
+    #  allowMethods:
+    #  - GET
     route:
     - destination:
         host: header-echo
