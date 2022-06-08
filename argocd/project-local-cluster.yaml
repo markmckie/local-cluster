@@ -4,9 +4,15 @@ metadata:
   name: local-cluster
   namespace: argocd
 spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
   destinations:
     - name: '*'
       namespace: '*'
       server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
   sourceRepos:
-    - '*'
+    - '*
