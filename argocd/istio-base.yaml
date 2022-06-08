@@ -3,7 +3,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: istio
+  name: istio-base
   namespace: argocd
 spec:
   destination:
