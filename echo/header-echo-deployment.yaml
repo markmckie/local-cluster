@@ -60,7 +60,7 @@ metadata:
   name: header-echo-gateway
 spec:
   selector:
-    istio: ingressgateway
+    app: istio-ingress
   servers:
   - port:
       number: 80
