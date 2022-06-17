@@ -27,7 +27,7 @@ metadata:
     app: header-echo
     version: v1
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: header-echo
