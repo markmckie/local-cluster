@@ -11,9 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: flink-kubernetes-operator
-    repoURL: https://downloads.apache.org/flink/flink-kubernetes-operator-1.7.0/
-    targetRevision: 1.7.0
+    path: flink-session
+    repoURL: https://github.com/markmckie/local-cluster.git
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
