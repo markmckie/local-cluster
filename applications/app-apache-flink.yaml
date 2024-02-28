@@ -9,13 +9,11 @@ spec:
   destination:
     namespace: flink
     server: https://kubernetes.default.svc
-  project: local-cluster
+  project: default
   source:
     chart: flink-kubernetes-operator
-    repoURL: https://downloads.apache.org/flink/flink-kubernetes-operator-0.1.0/
-    targetRevision: 0.1.0
+    repoURL: https://downloads.apache.org/flink/flink-kubernetes-operator-1.7.0/
+    targetRevision: 1.7.0
   syncPolicy:
-    automated: {}
     syncOptions:
       - CreateNamespace=true
-      - Replace=true
