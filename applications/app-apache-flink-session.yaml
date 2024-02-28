@@ -3,7 +3,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-  name: flink
+  name: flink-session
   namespace: argocd
 spec:
   destination:
