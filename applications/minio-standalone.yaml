@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: argocd
+spec:
+  destination:
+    namespace: minio
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: minio
+    helm:
+      parameters:
+        - name: service.type
+          value: LoadBalancer
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 13.7.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
