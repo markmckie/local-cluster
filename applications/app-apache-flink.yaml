@@ -12,6 +12,10 @@ spec:
   project: default
   source:
     chart: flink-kubernetes-operator
+    helm:
+      parameters:
+        - name: image.tag
+          value: b584b08
     repoURL: https://downloads.apache.org/flink/flink-kubernetes-operator-1.7.0/
     targetRevision: 1.7.0
   syncPolicy:

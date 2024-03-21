@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: recorder
+  labels:
+    app: recorder
+    service: recorder
+spec:
+  ports:
+  - port: 8090
+    name: http
+  selector:
+    app: recorder
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: recorder
+  labels:
+    account: recorder
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: recorder-config
+data:
+  KAFKA_BROKER: my-cluster-kafka-bootstrap.kafka:9092
+  KAFKA_RAW_TOPIC: external-messages
+  S3_ENDPOINT: minio.minio:9000
+  S3_ACCESS_KEY: ZpMBnKTrlwtxWo1kpHKs
+  S3_SECRET_KEY: FneYo2r6OlhvplXAcUjZ84OqdlaKFOJQF7YlGRrs
+  S3_BUCKET: external-messages
+  S3_LOCATION: external-messages
+   
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recorder-v1
+  labels:
+    app: recorder
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recorder
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: recorder
+        version: v1
+    spec:
+      serviceAccountName: recorder
+      containers:
+      - name: recorder 
+        image: wayofthedog/recorder:v1.0
+        imagePullPolicy: IfNotPresent
+        envFrom:
+         - configMapRef:
+             name: recorder-config
+        ports:
+        - containerPort: 8090
+        securityContext:
+          runAsUser: 1000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128M
+
+
