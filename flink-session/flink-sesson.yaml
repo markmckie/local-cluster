@@ -7,6 +7,11 @@ spec:
   flinkVersion: v1_17
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "2"
+  env:
+  - name: ENABLE_BUILT_IN_PLUGINS
+    value: flink-s3-fs-hadoop-1.15.4.jar
+  - name: "FLINK_PLUGINS_DIR"
+    value: "/opt/flink/plugins"
   serviceAccount: flink
   jobManager:
     resource:
