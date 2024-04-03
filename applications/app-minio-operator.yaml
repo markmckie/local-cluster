@@ -19,5 +19,8 @@ spec:
     repoURL: https://github.com/markmckie/local-cluster.git
     targetRevision: HEAD
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
