@@ -22,6 +22,8 @@ spec:
           value: mybucket
         - name: tenant.pools[0].servers
           value: '1'
+        - name: tenant.pools[0].volumesPerServer
+          value: '1'
     path: minio/minio-tenant
     repoURL: https://github.com/markmckie/local-cluster.git
     targetRevision: HEAD
