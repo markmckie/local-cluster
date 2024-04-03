@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: minio-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: minio-operator
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: console.ingress.enabled
+          value: 'true'
+    path: minio/minio-operator
+    repoURL: https://github.com/markmckie/local-cluster.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

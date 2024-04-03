@@ -1,0 +1,30 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+  name: minio-tenant
+  namespace: argocd
+spec:
+  destination:
+    namespace: minio-tenant
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: ingress.api.enabled
+          value: 'true'
+        - name: ingress.console.enabled
+          value: 'true'
+        - name: tenant.buckets[0].name
+          value: mybucket
+        - name: tenant.pools[0].servers
+          value: '1'
+    path: minio/minio-tenant
+    repoURL: https://github.com/markmckie/local-cluster.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
