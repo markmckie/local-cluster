@@ -33,7 +33,7 @@ tenant:
       ## custom name for the pool
       name: pool-0
       ## volumesPerServer specifies the number of volumes attached per MinIO Tenant Pod / Server.
-      volumesPerServer: 4
+      volumesPerServer: 1
       ## size specifies the capacity per volume
       size: 10Gi
       ## storageClass specifies the storage class name to be used for this pool
@@ -101,7 +101,7 @@ tenant:
     domains: { }
   ## List of bucket names to create during tenant provisioning
   buckets:
-    - name: "cesar"
+    - name: "mybucket"
   ## List of secret names to use for generating MinIO users during tenant provisioning
   users: [ ]
   ## PodManagement policy for MinIO Tenant Pods. Can be "OrderedReady" or "Parallel"
@@ -229,7 +229,7 @@ tenant:
 
 ingress:
   api:
-    enabled: false
+    enabled: true
     ingressClassName: ""
     labels: { }
     annotations: { }
@@ -238,7 +238,7 @@ ingress:
     path: /
     pathType: Prefix
   console:
-    enabled: false
+    enabled: true
     ingressClassName: ""
     labels: { }
     annotations: { }
