@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: s3-read
+  labels:
+    account: s3-read
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: s3-read-job
+spec:
+  template:
+    metadata:
+      name: s3-read-pod
+    spec:
+      serviceAccountName: s3-read
+      containers:
+      - name: s3-read
+        image: markmckie/s3-test:minio  # Replace with the name of your Docker image
+        env:
+        - name: S3_BUCKET           # Environment variable name
+          value: "mybucket"          # Environment variable value
+        - name: MINIO_ENDPOINT           # Environment variable name
+          value: "https://192.168.64.104:9000"          # Environment variable value
+        - name: AWS_ACCESS_KEY_ID           # Environment variable name
+          value: "Lv8FHIl5gzvmTFkA"          # Environment variable value
+        - name: AWS_SECRET_ACCESS_KEY          # Environment variable name
+          value: "IJGWShPTl2JnatkbPYgov7yu9fKAFLCC"          # Environment variable value
+
+      restartPolicy: Never           # The job will not restart if the pod fails or is terminated
