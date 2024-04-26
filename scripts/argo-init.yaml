@@ -30,7 +30,7 @@ spec:
       jsonnet: {}
       recurse: true
     path: applications
-    repoURL: https://github.com/MichalIzdebski/local-cluster.git
+    repoURL: https://github.com/markmckie/local-cluster.git
     targetRevision: main
   syncPolicy:
     automated:
