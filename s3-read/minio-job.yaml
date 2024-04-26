@@ -22,7 +22,7 @@ spec:
         - name: S3_BUCKET           # Environment variable name
           value: "mybucket"          # Environment variable value
         - name: MINIO_ENDPOINT           # Environment variable name
-          value: "https://192.168.64.104:9000"          # Environment variable value
+          value: "http://minio.minio-tenant"          # Environment variable value
         - name: AWS_ACCESS_KEY_ID           # Environment variable name
           value: "Lv8FHIl5gzvmTFkA"          # Environment variable value
         - name: AWS_SECRET_ACCESS_KEY          # Environment variable name
